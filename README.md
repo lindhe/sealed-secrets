@@ -37,7 +37,7 @@ original Secret from the SealedSecret.
 - [Usage](#usage)
   - [Managing existing secrets](#managing-existing-secrets)
   - [Patching existing secrets](#patching-existing-secrets)
-  - [Update existing secrets](#update-existing-secrets)
+  - [Update existing sealed secrets](#update-existing-sealed-secrets)
   - [Raw mode (experimental)](#raw-mode-experimental)
   - [Validate a Sealed Secret](#validate-a-sealed-secret)
 - [Secret Rotation](#secret-rotation)
@@ -469,7 +469,7 @@ This annotation does not make the `SealedSecret` take ownership of the `Secret`.
 
 If you want `SealedSecret` and the `Secret` to be independent, which mean when you delete the `SealedSecret` the `Secret` won't disappear with it, then you have to annotate that Secret with the annotation `sealedsecrets.bitnami.com/skip-set-owner-references: "true"` ahead of applying the Usage steps. You still may also add `sealedsecrets.bitnami.com/managed: "true"` to your `Secret` so that your secret will be updated when `SealedSecret` is updated.
 
-### Update existing secrets
+### Update existing sealed secrets
 
 If you want to add or update existing sealed secrets without having the cleartext for the other items,
 you can just copy&paste the new encrypted data items and merge it into an existing sealed secret.
